@@ -1,0 +1,181 @@
+/* =========================================================
+   Sadhan.ch — Hero
+   ========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: calc(100svh - 88px);
+
+  display: flex;
+  align-items: center;
+}
+
+.hero__inner {
+  width: 100%;
+
+  max-width: 960px;
+
+  padding-block: 120px 150px;
+}
+
+/* ---------------------------------------------------------
+   Kicker
+   --------------------------------------------------------- */
+
+.hero__kicker {
+  margin: 0 0 30px;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   Heading
+   --------------------------------------------------------- */
+
+.hero__title {
+  max-width: 920px;
+
+  margin: 0 0 34px;
+
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8.2vw, 7rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.94;
+}
+
+/* ---------------------------------------------------------
+   Lead
+   --------------------------------------------------------- */
+
+.hero__lead {
+  max-width: 690px;
+
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-sans);
+  font-size: 1.1875rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* ---------------------------------------------------------
+   Actions
+   --------------------------------------------------------- */
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  margin-top: 38px;
+}
+
+/* ---------------------------------------------------------
+   Buttons
+   --------------------------------------------------------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 46px;
+
+  padding: 0.75rem 1.125rem;
+
+  border: 1px solid var(--color-text);
+  border-radius: 999px;
+
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1;
+
+  transition:
+    transform var(--motion-standard) ease-out,
+    background-color var(--motion-standard) ease-out,
+    color var(--motion-standard) ease-out,
+    border-color var(--motion-standard) ease-out;
+}
+
+.button span {
+  display: inline-block;
+
+  transition: transform var(--motion-standard) ease-out;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:hover span {
+  transform: translateX(4px);
+}
+
+.button--primary {
+  background: var(--color-text);
+  color: var(--color-background);
+}
+
+.button--primary:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--color-text);
+}
+
+.button--secondary:hover {
+  background: var(--color-soft);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: calc(100svh - 72px);
+  }
+
+  .hero__inner {
+    padding-block: 80px 100px;
+  }
+
+  .hero__kicker {
+    margin-bottom: 24px;
+
+    font-size: 0.625rem;
+  }
+
+  .hero__title {
+    margin-bottom: 28px;
+
+    font-size: clamp(3.25rem, 15vw, 5rem);
+    line-height: 0.97;
+  }
+
+  .hero__lead {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .hero__actions {
+    margin-top: 32px;
+  }
+}

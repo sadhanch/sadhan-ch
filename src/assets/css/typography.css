@@ -1,0 +1,89 @@
+/* =========================================================
+   Sadhan.ch — Typography
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Fraunces
+   Display / editorial typography
+   --------------------------------------------------------- */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/fraunces/Fraunces-Variable.woff2")
+    format("woff2");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------
+   Manrope
+   Interface / body typography
+   --------------------------------------------------------- */
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../fonts/manrope/manrope-latin-wght-normal.woff2")
+    format("woff2");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------
+   DM Mono
+   Technical / metadata typography
+   --------------------------------------------------------- */
+
+@font-face {
+  font-family: "DM Mono";
+  src: url("../fonts/dm-mono/dm-mono-latin-400-normal.woff2")
+    format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Mono";
+  src: url("../fonts/dm-mono/dm-mono-latin-500-normal.woff2")
+    format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------
+   Base typographic roles
+   --------------------------------------------------------- */
+
+body {
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+}
+
+h3 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+code,
+pre,
+.font-mono {
+  font-family: var(--font-mono);
+}

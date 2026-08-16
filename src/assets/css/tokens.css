@@ -1,0 +1,103 @@
+:root {
+  /* =========================================================
+     Sadhan.ch — Design Tokens
+     ========================================================= */
+
+  /* ---------------------------------------------------------
+     Color
+     Light theme only
+     --------------------------------------------------------- */
+
+  --color-bg: #f6f6f1;
+  --color-text: #171815;
+  --color-text-secondary: #6e7169;
+  --color-border: #dcdcd6;
+  --color-accent: #3f6f5b;
+  --color-surface: #f9f9f5;
+  --color-surface-soft: #e9ede7;
+
+  /* ---------------------------------------------------------
+     Spacing
+     8px-based spatial rhythm
+     --------------------------------------------------------- */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 96px;
+  --space-12: 128px;
+  --space-13: 160px;
+
+  /* ---------------------------------------------------------
+     Layout
+     --------------------------------------------------------- */
+
+  --layout-max: 1180px;
+  --content-max: 960px;
+  --reading-max: 720px;
+  --hero-content-max: 940px;
+
+  /* ---------------------------------------------------------
+     Responsive gutters
+     --------------------------------------------------------- */
+
+  --gutter-desktop: 40px;
+  --gutter-tablet: 32px;
+  --gutter-mobile: 20px;
+
+  /* ---------------------------------------------------------
+     Section geometry
+     --------------------------------------------------------- */
+
+  --section-space: 112px;
+  --section-space-mobile: 80px;
+
+  --section-number-width: 72px;
+  --section-header-gap: 24px;
+
+  --section-number-width-mobile: 40px;
+  --section-header-gap-mobile: 16px;
+
+  /* ---------------------------------------------------------
+     Content relationships
+     --------------------------------------------------------- */
+
+  --layout-gap: 64px;
+  --layout-gap-large: 80px;
+
+  /* ---------------------------------------------------------
+     Motion
+     --------------------------------------------------------- */
+
+  --motion-fast: 150ms;
+  --motion-standard: 250ms;
+  --motion-slow: 500ms;
+  --motion-reveal: 600ms;
+
+  --motion-distance-sm: 4px;
+  --motion-distance-md: 8px;
+  --motion-distance-reveal: 16px;
+
+  /* ---------------------------------------------------------
+     Typography references
+     --------------------------------------------------------- */
+
+  --font-display: "Fraunces", serif;
+  --font-sans: "Manrope", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  /* ---------------------------------------------------------
+     Other
+     --------------------------------------------------------- */
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --focus-ring-width: 2px;
+}
