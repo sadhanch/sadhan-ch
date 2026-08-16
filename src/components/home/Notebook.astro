@@ -1,4 +1,8 @@
 ---
+import { getLatestBlogPost } from "../../lib/blog";
+
+const latestPost = await getLatestBlogPost();
+
 const posts = [
   {
     tag: "Microsoft 365",
@@ -9,12 +13,15 @@ const posts = [
     href: "https://blog.sadhan.ch/",
   },
   {
-    tag: "Latest writing",
-    title: "Deep dives, troubleshooting notes and things worth remembering.",
+    tag: latestPost?.category || "Latest writing",
+    title:
+      latestPost?.title ||
+      "Deep dives, troubleshooting notes and things worth remembering.",
     description:
+      latestPost?.description ||
       "Technical investigations, documentation and lessons from working with enterprise technology.",
-    action: "Blog.sadhan.ch",
-    href: "https://blog.sadhan.ch/",
+    action: latestPost ? "Read the article" : "Visit the blog",
+    href: latestPost?.link || "https://blog.sadhan.ch/",
   },
 ];
 ---

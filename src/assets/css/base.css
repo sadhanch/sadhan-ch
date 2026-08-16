@@ -8,6 +8,7 @@ html {
 }
 
 body {
+  position: relative;
   min-width: 320px;
   background: var(--color-bg);
   color: var(--color-text);
@@ -26,6 +27,32 @@ body {
 :focus-visible {
   outline: var(--focus-ring-width) solid var(--color-accent);
   outline-offset: 4px;
+}
+
+/* ---------------------------------------------------------
+   Section entrance
+   --------------------------------------------------------- */
+
+.section {
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    opacity 600ms ease-out,
+    transform 600ms ease-out;
+}
+
+.section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 a {
@@ -53,10 +80,6 @@ button:disabled {
   body {
     font-size: 15px;
   }
-}
-
-body {
-  position: relative;
 }
 
 body::before {

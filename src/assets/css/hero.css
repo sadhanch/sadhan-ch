@@ -179,3 +179,47 @@
     margin-top: 32px;
   }
 }
+
+/* ---------------------------------------------------------
+   Entrance
+   --------------------------------------------------------- */
+
+.hero__kicker,
+.hero__title,
+.hero__lead,
+.hero__actions {
+  animation: hero-reveal var(--motion-reveal) ease-out both;
+}
+
+.hero__title {
+  animation-delay: 80ms;
+}
+
+.hero__lead {
+  animation-delay: 160ms;
+}
+
+.hero__actions {
+  animation-delay: 240ms;
+}
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance-reveal));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__kicker,
+  .hero__title,
+  .hero__lead,
+  .hero__actions {
+    animation: none;
+  }
+}
