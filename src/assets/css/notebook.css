@@ -1,0 +1,144 @@
+/* =========================================================
+   Sadhan.ch — Notebook
+   ========================================================= */
+
+.notebook-section {
+  border-top: 1px solid var(--color-border);
+}
+
+.notebook-list {
+  margin-top: 72px;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.notebook-item {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 48px;
+
+  padding: 40px 4px;
+
+  border-bottom: 1px solid var(--color-border);
+
+  transition:
+    padding var(--motion-standard) ease-out,
+    background-color var(--motion-standard) ease-out;
+}
+
+.notebook-item:hover {
+  padding-inline: 12px;
+
+  background: var(--color-surface-soft);
+}
+
+/* ---------------------------------------------------------
+   Tag
+   --------------------------------------------------------- */
+
+.notebook-item__tag {
+  padding-top: 7px;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   Content
+   --------------------------------------------------------- */
+
+.notebook-item__content {
+  max-width: 720px;
+}
+
+.notebook-item h3 {
+  max-width: 680px;
+
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.notebook-item p {
+  max-width: 600px;
+
+  margin: 18px 0 0;
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ---------------------------------------------------------
+   Link
+   --------------------------------------------------------- */
+
+.notebook-item__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 28px;
+
+  color: var(--color-text);
+
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.notebook-item__link span {
+  color: var(--color-accent);
+
+  transition: transform var(--motion-standard) ease-out;
+}
+
+.notebook-item__link:hover span {
+  transform: translateX(4px);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .notebook-list {
+    margin-top: 48px;
+  }
+
+  .notebook-item {
+    grid-template-columns: 1fr;
+    gap: 14px;
+
+    padding: 32px 0;
+  }
+
+  .notebook-item:hover {
+    padding-inline: 6px;
+  }
+
+  .notebook-item h3 {
+    font-size: 2rem;
+  }
+
+  .notebook-item__tag {
+    padding-top: 0;
+  }
+}

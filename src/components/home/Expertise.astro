@@ -1,0 +1,40 @@
+---
+const areas = [
+  "Microsoft 365",
+  "Cloud & Identity",
+  "Enterprise Support",
+  "Automation",
+];
+---
+
+<section class="section expertise-section" id="expertise" aria-labelledby="expertise-title">
+  <div class="container-content">
+
+    <div class="section-header">
+      <span class="section-number">01</span>
+
+      <div>
+        <h2 id="expertise-title" class="section-title">
+          What I work with.
+        </h2>
+
+        <p class="section-intro">
+          A practical mix of cloud technology, enterprise systems and
+          the people who have to keep them working.
+        </p>
+      </div>
+    </div>
+
+    <div class="expertise-list">
+      {
+        areas.map((area) => (
+          <a class="expertise-item" href="#contact">
+            <span>{area}</span>
+            <span class="expertise-item__arrow" aria-hidden="true">→</span>
+          </a>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

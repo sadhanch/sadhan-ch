@@ -1,0 +1,71 @@
+---
+const interests = [
+  "Microsoft 365",
+  "Cloud architecture",
+  "Technical writing",
+];
+---
+
+<section
+  class="section about-section"
+  id="about"
+  aria-labelledby="about-title"
+>
+  <div class="container-content">
+
+    <div class="section-header">
+      <span class="section-number">04</span>
+
+      <div>
+        <h2 id="about-title" class="section-title">
+          A little more.
+        </h2>
+
+        <p class="section-intro">
+          Outside of work, I like learning how things work,
+          documenting what I discover, and occasionally
+          disappearing down interesting technical rabbit holes.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-copy">
+        <p>
+          I enjoy the space between technology and explanation —
+          taking something complicated, understanding how the
+          pieces fit together, and finding a clearer way to
+          explain it.
+        </p>
+
+        <p>
+          That's a big part of why I write, experiment, and keep
+          building things like this.
+        </p>
+      </div>
+
+      <div class="about-terminal" aria-label="Current interests">
+        <div class="terminal-line">
+          <span class="terminal-prompt">$</span>
+          <span>cat /currently/interested-in</span>
+        </div>
+
+        <div class="terminal-output">
+          {
+            interests.map((interest) => (
+              <span>{interest}</span>
+            ))
+          }
+        </div>
+
+        <div class="terminal-line terminal-line--last">
+          <span class="terminal-prompt">$</span>
+          <span class="terminal-cursor" aria-hidden="true">_</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

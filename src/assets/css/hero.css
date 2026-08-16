@@ -127,7 +127,7 @@
 
 .button--primary {
   background: var(--color-text);
-  color: var(--color-background);
+  color: var(--color-bg);
 }
 
 .button--primary:hover {

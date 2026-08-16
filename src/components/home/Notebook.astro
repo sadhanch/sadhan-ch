@@ -1,0 +1,72 @@
+---
+const posts = [
+  {
+    tag: "Microsoft 365",
+    title: "Practical guides for administrators and support engineers.",
+    description:
+      "Selected writing from the technical notebook at blog.sadhan.ch.",
+    action: "Read the blog",
+    href: "https://blog.sadhan.ch/",
+  },
+  {
+    tag: "Latest writing",
+    title: "Deep dives, troubleshooting notes and things worth remembering.",
+    description:
+      "Technical investigations, documentation and lessons from working with enterprise technology.",
+    action: "Blog.sadhan.ch",
+    href: "https://blog.sadhan.ch/",
+  },
+];
+---
+
+<section
+  class="section notebook-section"
+  id="writing"
+  aria-labelledby="notebook-title"
+>
+  <div class="container-content">
+
+    <div class="section-header">
+      <span class="section-number">03</span>
+
+      <div>
+        <h2 id="notebook-title" class="section-title">
+          From the notebook.
+        </h2>
+
+        <p class="section-intro">
+          Things I've learned, broken, fixed, and written down.
+        </p>
+      </div>
+    </div>
+
+    <div class="notebook-list">
+      {
+        posts.map((post) => (
+          <article class="notebook-item">
+            <div class="notebook-item__tag">
+              {post.tag}
+            </div>
+
+            <div class="notebook-item__content">
+              <h3>{post.title}</h3>
+
+              <p>{post.description}</p>
+
+              <a
+                class="notebook-item__link"
+                href={post.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {post.action}
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

@@ -1,28 +1,25 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/home/Hero.astro";
+import Expertise from "../components/home/Expertise.astro";
+import Currently from "../components/home/Currently.astro";
+import Notebook from "../components/home/Notebook.astro";
+import About from "../components/home/About.astro";
+import Contact from "../components/home/Contact.astro";
 ---
 
 <BaseLayout>
   <main>
     <Hero />
 
-    <section id="writing" class="section">
-      <div class="container">
-        <h2>Writing</h2>
-      </div>
-    </section>
+    <Expertise />
 
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About</h2>
-      </div>
-    </section>
+    <Currently />
 
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-      </div>
-    </section>
+    <Notebook />
+
+    <About />
+
+    <Contact />
   </main>
 </BaseLayout>

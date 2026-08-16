@@ -1,0 +1,98 @@
+/* =========================================================
+   Sadhan.ch — Contact
+   ========================================================= */
+
+.contact-section {
+  padding-bottom: var(--space-13);
+
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-content {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: var(--layout-gap-large);
+
+  margin-top: 72px;
+}
+
+.contact-content p {
+  max-width: 700px;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.contact-link {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 12px;
+
+  padding: 16px 20px;
+
+  border: 1px solid var(--color-text);
+
+  color: var(--color-bg);
+  background: var(--color-text);
+
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+
+  transition:
+    background-color var(--motion-standard) ease-out,
+    border-color var(--motion-standard) ease-out,
+    transform var(--motion-standard) ease-out;
+}
+
+.contact-link span:last-child {
+  color: var(--color-accent);
+
+  transition: transform var(--motion-standard) ease-out;
+}
+
+.contact-link:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+
+  transform: translateY(-2px);
+}
+
+.contact-link:hover span:last-child {
+  color: var(--color-bg);
+
+  transform: translate(3px, -3px);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .contact-section {
+    padding-bottom: var(--space-10);
+  }
+
+  .contact-content {
+    display: block;
+
+    margin-top: 48px;
+  }
+
+  .contact-content p {
+    font-size: 2.5rem;
+  }
+
+  .contact-link {
+    margin-top: 36px;
+  }
+}

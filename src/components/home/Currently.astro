@@ -1,0 +1,62 @@
+---
+const status = [
+  {
+    label: "focus",
+    value: "Microsoft 365",
+  },
+  {
+    label: "interest",
+    value: "Cloud & AI",
+  },
+  {
+    label: "mode",
+    value: "Learning",
+  },
+  {
+    label: "writing",
+    value: "Active",
+  },
+];
+---
+
+<section class="section currently-section" id="currently" aria-labelledby="currently-title">
+  <div class="container-content">
+
+    <div class="section-header">
+      <span class="section-number">02</span>
+
+      <div>
+        <h2 id="currently-title" class="section-title">
+          Currently.
+        </h2>
+
+        <p class="section-intro">
+          A small snapshot of what is occupying my attention right now.
+        </p>
+      </div>
+    </div>
+
+    <div class="currently-grid">
+
+      <div class="currently-statement">
+        <p>
+          Learning, experimenting, documenting — and trying to make
+          complicated things a little easier to understand.
+        </p>
+      </div>
+
+      <dl class="currently-status">
+        {
+          status.map((item) => (
+            <div class="currently-status__item">
+              <dt>{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+    </div>
+
+  </div>
+</section>

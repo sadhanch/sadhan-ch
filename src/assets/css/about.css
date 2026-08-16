@@ -1,0 +1,123 @@
+/* =========================================================
+   Sadhan.ch — About
+   ========================================================= */
+
+.about-section {
+  border-top: 1px solid var(--color-border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+  gap: var(--layout-gap-large);
+
+  margin-top: 72px;
+
+  align-items: start;
+}
+
+/* ---------------------------------------------------------
+   Personal copy
+   --------------------------------------------------------- */
+
+.about-copy {
+  max-width: 640px;
+}
+
+.about-copy p {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.about-copy p + p {
+  margin-top: 24px;
+}
+
+/* ---------------------------------------------------------
+   Terminal
+   --------------------------------------------------------- */
+
+.about-terminal {
+  padding: 28px;
+
+  border: 1px solid var(--color-border);
+
+  background: var(--color-surface);
+
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+.terminal-line {
+  display: flex;
+  gap: 10px;
+
+  color: var(--color-text-secondary);
+}
+
+.terminal-prompt {
+  color: var(--color-accent);
+}
+
+.terminal-output {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 18px;
+  margin-left: 18px;
+
+  color: var(--color-text);
+}
+
+.terminal-output span {
+  padding-block: 3px;
+}
+
+.terminal-line--last {
+  margin-top: 18px;
+}
+
+.terminal-cursor {
+  color: var(--color-accent);
+
+  animation: terminal-blink 1.2s steps(1) infinite;
+}
+
+@keyframes terminal-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+
+    margin-top: 48px;
+  }
+
+  .about-copy p {
+    font-size: 1rem;
+  }
+
+  .about-terminal {
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-cursor {
+    animation: none;
+  }
+}

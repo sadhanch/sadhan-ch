@@ -55,9 +55,54 @@ button:disabled {
   }
 }
 
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: -64px;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(63, 111, 91, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(63, 111, 91, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 64px 64px;
+
+  animation: background-drift 28s linear infinite;
+}
+
+@keyframes background-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(32px, 32px, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  body::before {
+    animation: none;
   }
 
   *,
@@ -67,5 +112,11 @@ button:disabled {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body::before {
+    opacity: 0.7;
   }
 }

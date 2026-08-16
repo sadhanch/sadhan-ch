@@ -1,0 +1,98 @@
+/* =========================================================
+   Sadhan.ch — Currently
+   ========================================================= */
+
+.currently-section {
+  border-top: 1px solid var(--color-border);
+}
+
+.currently-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: var(--layout-gap-large);
+
+  margin-top: 72px;
+
+  align-items: start;
+}
+
+/* ---------------------------------------------------------
+   Statement
+   --------------------------------------------------------- */
+
+.currently-statement {
+  max-width: 680px;
+}
+
+.currently-statement p {
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
+/* ---------------------------------------------------------
+   Status
+   --------------------------------------------------------- */
+
+.currently-status {
+  margin: 0;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.currently-status__item {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 20px;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.currently-status dt {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+.currently-status dd {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .currently-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+
+    margin-top: 48px;
+  }
+
+  .currently-statement p {
+    font-size: 2rem;
+  }
+
+  .currently-status__item {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+}
