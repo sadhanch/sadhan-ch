@@ -1,4 +1,9 @@
 ---
+/**
+ * Page: Homepage
+ * Purpose: Composes the complete single-page personal site in reading order.
+ */
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/home/Hero.astro";
 import Expertise from "../components/home/Expertise.astro";
@@ -11,15 +16,10 @@ import Contact from "../components/home/Contact.astro";
 <BaseLayout>
   <main>
     <Hero />
-
     <Expertise />
-
     <Currently />
-
     <Notebook />
-
     <About />
-
     <Contact />
   </main>
 </BaseLayout>

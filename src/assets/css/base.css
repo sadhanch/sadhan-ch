@@ -1,23 +1,35 @@
-/* =========================================================
-   Sadhan.ch — Base
-   ========================================================= */
+/*
+ * Sadhan.ch — Base
+ * Purpose: Global document defaults, accessibility, and motion behavior.
+ */
 
 html {
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-body {
-  position: relative;
   min-width: 320px;
   background: var(--color-bg);
   color: var(--color-text);
+}
+
+/* ---------------------------------------------------------
+   Document defaults
+   --------------------------------------------------------- */
+
+body {
+  min-width: 320px;
+
+  background: var(--color-bg);
+  color: var(--color-text);
+
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+
+/* ---------------------------------------------------------
+   Selection and keyboard focus
+   --------------------------------------------------------- */
 
 ::selection {
   background: var(--color-accent);
@@ -30,30 +42,28 @@ body {
 }
 
 /* ---------------------------------------------------------
-   Section entrance
+   Scroll-reveal
+   Default state remains visible when JavaScript is unavailable.
+   The .js class is added synchronously by BaseLayout.
    --------------------------------------------------------- */
 
-.section {
+.js .section {
   opacity: 0;
   transform: translateY(8px);
 
   transition:
-    opacity 600ms ease-out,
-    transform 600ms ease-out;
+    opacity var(--motion-reveal) ease-out,
+    transform var(--motion-reveal) ease-out;
 }
 
-.section.is-visible {
+.js .section.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .section {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
+/* ---------------------------------------------------------
+   Links and controls
+   --------------------------------------------------------- */
 
 a {
   transition:
@@ -70,6 +80,10 @@ button:disabled {
   cursor: not-allowed;
 }
 
+/* ---------------------------------------------------------
+   Responsive type scale
+   --------------------------------------------------------- */
+
 @media (max-width: 1199px) {
   body {
     font-size: 15.5px;
@@ -82,50 +96,19 @@ button:disabled {
   }
 }
 
-body::before {
-  content: "";
-
-  position: fixed;
-  inset: -64px;
-
-  z-index: -1;
-
-  pointer-events: none;
-
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(63, 111, 91, 0.035) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(63, 111, 91, 0.035) 1px,
-      transparent 1px
-    );
-
-  background-size: 64px 64px;
-
-  animation: background-drift 28s linear infinite;
-}
-
-@keyframes background-drift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(32px, 32px, 0);
-  }
-}
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  body::before {
-    animation: none;
+  .js .section {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
   *,
@@ -133,13 +116,7 @@ body::before {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-}
-
-@media (max-width: 767px) {
-  body::before {
-    opacity: 0.7;
+    transition-duration: 0.01ms !important;
   }
 }

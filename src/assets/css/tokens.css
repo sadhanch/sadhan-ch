@@ -1,11 +1,13 @@
-:root {
-  /* =========================================================
-     Sadhan.ch — Design Tokens
-     ========================================================= */
+/*
+ * Sadhan.ch — Design Tokens
+ * Purpose: Central source of truth for the homepage visual system.
+ * Keep component-specific values in the component stylesheet only when
+ * they are not shared across the site.
+ */
 
+:root {
   /* ---------------------------------------------------------
      Color
-     Light theme only
      --------------------------------------------------------- */
 
   --color-bg: #f6f6f1;
@@ -18,21 +20,9 @@
 
   /* ---------------------------------------------------------
      Spacing
-     8px-based spatial rhythm
      --------------------------------------------------------- */
 
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 40px;
-  --space-8: 48px;
-  --space-9: 64px;
   --space-10: 80px;
-  --space-11: 96px;
-  --space-12: 128px;
   --space-13: 160px;
 
   /* ---------------------------------------------------------
@@ -41,8 +31,6 @@
 
   --layout-max: 1180px;
   --content-max: 960px;
-  --reading-max: 720px;
-  --hero-content-max: 940px;
 
   /* ---------------------------------------------------------
      Responsive gutters
@@ -66,27 +54,21 @@
   --section-header-gap-mobile: 16px;
 
   /* ---------------------------------------------------------
-     Content relationships
+     Shared layout relationships
      --------------------------------------------------------- */
 
-  --layout-gap: 64px;
   --layout-gap-large: 80px;
 
   /* ---------------------------------------------------------
      Motion
      --------------------------------------------------------- */
 
-  --motion-fast: 150ms;
   --motion-standard: 250ms;
-  --motion-slow: 500ms;
   --motion-reveal: 600ms;
-
-  --motion-distance-sm: 4px;
-  --motion-distance-md: 8px;
   --motion-distance-reveal: 16px;
 
   /* ---------------------------------------------------------
-     Typography references
+     Typography
      --------------------------------------------------------- */
 
   --font-display: "Fraunces", serif;
@@ -94,10 +76,8 @@
   --font-mono: "DM Mono", monospace;
 
   /* ---------------------------------------------------------
-     Other
+     Accessibility
      --------------------------------------------------------- */
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
   --focus-ring-width: 2px;
 }

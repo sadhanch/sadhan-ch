@@ -1,6 +1,7 @@
-/* =========================================================
-   Sadhan.ch — Layout
-   ========================================================= */
+/*
+ * Sadhan.ch — Layout
+ * Purpose: Shared containers and section geometry used across the homepage.
+ */
 
 /* ---------------------------------------------------------
    Page container
@@ -29,24 +30,26 @@
 }
 
 /* ---------------------------------------------------------
-   Reading container
-   --------------------------------------------------------- */
-
-.container-reading {
-  width: min(
-    calc(100% - (var(--gutter-desktop) * 2)),
-    var(--reading-max)
-  );
-
-  margin-inline: auto;
-}
-
-/* ---------------------------------------------------------
    Section
    --------------------------------------------------------- */
 
 .section {
   padding-block: var(--section-space);
+}
+
+/* ---------------------------------------------------------
+   Shared section introduction
+   --------------------------------------------------------- */
+
+.section-intro {
+  max-width: 640px;
+  margin-top: 20px;
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
 }
 
 /* ---------------------------------------------------------
@@ -64,6 +67,7 @@
   padding-top: 0.35em;
 
   color: var(--color-accent);
+
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 500;
@@ -88,8 +92,7 @@
     );
   }
 
-  .container-content,
-  .container-reading {
+  .container-content {
     width: min(
       calc(100% - (var(--gutter-tablet) * 2)),
       var(--content-max)
@@ -105,8 +108,7 @@
     );
   }
 
-  .container-content,
-  .container-reading {
+  .container-content {
     width: min(
       calc(100% - (var(--gutter-mobile) * 2)),
       var(--content-max)
@@ -115,6 +117,11 @@
 
   .section {
     padding-block: var(--section-space-mobile);
+  }
+
+  .section-intro {
+    margin-top: 16px;
+    font-size: 1rem;
   }
 
   .section-header {

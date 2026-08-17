@@ -1,5 +1,17 @@
 ---
+/**
+ * Layout: BaseLayout
+ * Purpose: Shared document shell for the Sadhan.ch homepage and future pages.
+ *
+ * Responsibilities:
+ * - Loads the global stylesheet.
+ * - Provides document metadata and favicon links.
+ * - Renders the shared background, header, content slot, reveal behavior,
+ *   and footer in the intended visual order.
+ */
+
 import "../assets/css/main.css";
+
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import AmbientBackground from "../components/ui/AmbientBackground.astro";
@@ -21,31 +33,32 @@ const {
   <head>
     <meta charset="UTF-8" />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta name="description" content={description} />
-
     <meta name="generator" content={Astro.generator} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
 
+    <!-- Add the JS enhancement flag before the page renders.
+         Without this flag, the reveal CSS leaves content visible. -->
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
+
     <title>{title}</title>
   </head>
 
   <body>
-  <AmbientBackground />
+    <AmbientBackground />
 
-  <Header />
+    <Header />
 
-  <slot />
+    <slot />
 
-  <ScrollReveal />
+    <ScrollReveal />
 
-  <Footer />
-</body>
-
+    <Footer />
+  </body>
 </html>

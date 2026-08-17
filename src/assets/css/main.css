@@ -1,3 +1,8 @@
+/*
+ * Sadhan.ch — Main stylesheet entry point
+ * Purpose: Load the global CSS layers in dependency order.
+ */
+
 @import "./tokens.css";
 @import "./reset.css";
 @import "./base.css";

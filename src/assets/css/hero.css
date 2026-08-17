@@ -1,10 +1,14 @@
-/* =========================================================
-   Sadhan.ch — Hero
-   ========================================================= */
+/*
+ * Sadhan.ch — Hero
+ * Purpose: Primary homepage introduction and calls to action.
+ */
+
+/* ---------------------------------------------------------
+   Hero layout
+   --------------------------------------------------------- */
 
 .hero {
   position: relative;
-
   min-height: calc(100svh - 88px);
 
   display: flex;
@@ -13,9 +17,7 @@
 
 .hero__inner {
   width: 100%;
-
   max-width: 960px;
-
   padding-block: 120px 150px;
 }
 
@@ -42,7 +44,6 @@
 
 .hero__title {
   max-width: 920px;
-
   margin: 0 0 34px;
 
   color: var(--color-text);
@@ -60,7 +61,6 @@
 
 .hero__lead {
   max-width: 690px;
-
   margin: 0;
 
   color: var(--color-text-secondary);
@@ -79,7 +79,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-
   margin-top: 38px;
 }
 
@@ -93,7 +92,6 @@
   gap: 12px;
 
   min-height: 46px;
-
   padding: 0.75rem 1.125rem;
 
   border: 1px solid var(--color-text);
@@ -113,7 +111,6 @@
 
 .button span {
   display: inline-block;
-
   transition: transform var(--motion-standard) ease-out;
 }
 
@@ -141,47 +138,11 @@
 }
 
 .button--secondary:hover {
-  background: var(--color-soft);
+  background: var(--color-surface-soft);
 }
 
 /* ---------------------------------------------------------
-   Responsive
-   --------------------------------------------------------- */
-
-@media (max-width: 767px) {
-  .hero {
-    min-height: calc(100svh - 72px);
-  }
-
-  .hero__inner {
-    padding-block: 80px 100px;
-  }
-
-  .hero__kicker {
-    margin-bottom: 24px;
-
-    font-size: 0.625rem;
-  }
-
-  .hero__title {
-    margin-bottom: 28px;
-
-    font-size: clamp(3.25rem, 15vw, 5rem);
-    line-height: 0.97;
-  }
-
-  .hero__lead {
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .hero__actions {
-    margin-top: 32px;
-  }
-}
-
-/* ---------------------------------------------------------
-   Entrance
+   Entrance animation
    --------------------------------------------------------- */
 
 .hero__kicker,
@@ -212,6 +173,40 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: calc(100svh - 72px);
+  }
+
+  .hero__inner {
+    padding-block: 80px 100px;
+  }
+
+  .hero__kicker {
+    margin-bottom: 24px;
+    font-size: 0.625rem;
+  }
+
+  .hero__title {
+    margin-bottom: 28px;
+    font-size: clamp(3.25rem, 15vw, 5rem);
+    line-height: 0.97;
+  }
+
+  .hero__lead {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .hero__actions {
+    margin-top: 32px;
   }
 }
 

@@ -1,4 +1,12 @@
 ---
+/**
+ * Component: Notebook
+ * Purpose: Connects the personal homepage to the Support Engineering Blog.
+ *
+ * The first item is intentionally static and always links to the blog
+ * homepage. The second item is populated from the RSS feed at build time.
+ */
+
 import { getLatestBlogPost } from "../../lib/blog";
 
 const latestPost = await getLatestBlogPost();
@@ -32,7 +40,6 @@ const posts = [
   aria-labelledby="notebook-title"
 >
   <div class="container-content">
-
     <div class="section-header">
       <span class="section-number">03</span>
 
@@ -74,6 +81,5 @@ const posts = [
         ))
       }
     </div>
-
   </div>
 </section>
