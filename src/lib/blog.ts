@@ -39,7 +39,7 @@ export async function getLatestBlogPost(): Promise<BlogPost | null> {
 
     const getTag = (tag: string): string => {
       const match = item.match(
-        new RegExp(`<${tag}[^>]*>([\s\S]*?)<\/${tag}>`, "i"),
+        new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"),
       );
 
       return match?.[1]?.trim() ?? "";
