@@ -12,8 +12,16 @@
 
 .expertise-list {
   margin-top: 72px;
+  padding: 0;
 
   border-top: 1px solid var(--color-border);
+
+  list-style: none;
+}
+
+.expertise-list li {
+  margin: 0;
+  padding: 0;
 }
 
 .expertise-item {
@@ -41,26 +49,10 @@
     background-color var(--motion-standard) ease-out;
 }
 
-.expertise-item__arrow {
-  color: var(--color-accent);
-
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
-  font-weight: 400;
-
-  transform: translateX(0);
-
-  transition: transform var(--motion-standard) ease-out;
-}
-
 .expertise-item:hover {
   padding-inline: 12px;
 
   background: var(--color-surface-soft);
-}
-
-.expertise-item:hover .expertise-item__arrow {
-  transform: translateX(5px);
 }
 
 /* ---------------------------------------------------------

@@ -1,13 +1,19 @@
 ---
 /**
  * Layout: BaseLayout
- * Purpose: Shared document shell for the Sadhan.ch homepage and future pages.
+ * Purpose: Shared document shell for Sadhan.ch.
  *
  * Responsibilities:
  * - Loads the global stylesheet.
- * - Provides document metadata and favicon links.
- * - Renders the shared background, header, content slot, reveal behavior,
- *   and footer in the intended visual order.
+ * - Provides shared document metadata.
+ * - Provides canonical URL metadata.
+ * - Provides Open Graph and Twitter/X metadata.
+ * - Provides structured identity data for the site and author.
+ * - Loads favicon assets.
+ * - Renders the shared background, header, page content,
+ *   scroll-reveal behavior, and footer.
+ *
+ * Page-specific metadata can be supplied through component props.
  */
 
 import "../assets/css/main.css";
@@ -20,29 +26,109 @@ import ScrollReveal from "../components/ui/ScrollReveal.astro";
 interface Props {
   title?: string;
   description?: string;
+  canonicalUrl?: string;
 }
 
 const {
   title = "Sadhan — Technology, problem solving, and things worth figuring out",
-  description = "A personal space for technology, problem solving, learning, and writing.",
+  description = "A personal space for Microsoft 365, cloud technology, enterprise support, problem solving, and technical writing.",
+  canonicalUrl = "https://sadhan.ch/",
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Document fundamentals -->
     <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
 
+    <!-- Search-engine metadata -->
     <meta name="description" content={description} />
+    <meta name="author" content="Sadhan Chandra" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Browser UI -->
+    <meta name="theme-color" content="#f6f6f1" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Site icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
 
-    <!-- Add the JS enhancement flag before the page renders.
-         Without this flag, the reveal CSS leaves content visible. -->
+        <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Sadhan" />
+
+    <!-- Open Graph image -->
+    <meta property="og:image" content="https://sadhan.ch/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Sadhan — Technology, problem solving, and things worth figuring out."
+    />
+
+    <!-- Twitter/X sharing -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content="https://sadhan.ch/og-image.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Sadhan — Technology, problem solving, and things worth figuring out."
+    />
+
+    <!--
+      Structured identity data.
+
+      Only information that is authoritative from this site is included.
+      Social profiles and other identity properties can be added later
+      if they become part of the site's canonical identity.
+    -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://sadhan.ch/#person",
+          name: "Sadhan Chandra",
+          url: "https://sadhan.ch/",
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://sadhan.ch/#website",
+          url: "https://sadhan.ch/",
+          name: "Sadhan",
+          description,
+          inLanguage: "en",
+          publisher: {
+            "@id": "https://sadhan.ch/#person",
+          },
+        },
+      ],
+    })}></script>
+
+    <!--
+      Add the JS enhancement flag before the page renders.
+
+      Without this flag, the reveal CSS leaves content visible.
+      This keeps scroll-reveal progressive: JavaScript-enabled
+      browsers receive the enhancement while the content remains
+      visible without JavaScript.
+    -->
     <script is:inline>
       document.documentElement.classList.add("js");
     </script>
@@ -51,14 +137,19 @@ const {
   </head>
 
   <body>
+    <!-- Decorative background layer -->
     <AmbientBackground />
 
+    <!-- Global site header -->
     <Header />
 
+    <!-- Page-specific content -->
     <slot />
 
+    <!-- Progressive scroll-reveal enhancement -->
     <ScrollReveal />
 
+    <!-- Global site footer -->
     <Footer />
   </body>
 </html>

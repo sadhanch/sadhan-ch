@@ -1,0 +1,6 @@
+# Sadhan.ch — crawler access policy
+
+User-agent: *
+Allow: /
+
+Sitemap: https://sadhan.ch/sitemap-index.xml

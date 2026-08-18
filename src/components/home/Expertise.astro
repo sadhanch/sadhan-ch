@@ -33,15 +33,14 @@ const areas = [
       </div>
     </div>
 
-    <div class="expertise-list">
+    <ul class="expertise-list">
       {
         areas.map((area) => (
-          <a class="expertise-item" href="#contact">
+          <li class="expertise-item">
             <span>{area}</span>
-            <span class="expertise-item__arrow" aria-hidden="true">→</span>
-          </a>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
 </section>
