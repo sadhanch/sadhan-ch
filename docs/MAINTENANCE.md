@@ -504,7 +504,7 @@ The goal is:
 
 ## Document status
 
-**Status:** Final
+**Status:** Final 
 
 **Maintenance version:** 1.0
 
