@@ -3,35 +3,9 @@
  * Component: Notebook
  * Purpose: Connects the personal homepage to the Support Engineering Blog.
  *
- * The first item is intentionally static and always links to the blog
- * homepage. The second item is populated from the RSS feed at build time.
+ * The homepage remains static, while the latest article is loaded
+ * client-side through the same-origin Cloudflare Pages Function.
  */
-
-import { getLatestBlogPost } from "../../lib/blog";
-
-const latestPost = await getLatestBlogPost();
-
-const posts = [
-  {
-    tag: "Microsoft 365",
-    title: "Practical guides for administrators and support engineers.",
-    description:
-      "Selected writing from the technical notebook at blog.sadhan.ch.",
-    action: "Read the blog",
-    href: "https://blog.sadhan.ch/",
-  },
-  {
-    tag: latestPost?.category || "Latest writing",
-    title:
-      latestPost?.title ||
-      "Deep dives, troubleshooting notes and things worth remembering.",
-    description:
-      latestPost?.description ||
-      "Technical investigations, documentation and lessons from working with enterprise technology.",
-    action: latestPost ? "Read the article" : "Visit the blog",
-    href: latestPost?.link || "https://blog.sadhan.ch/",
-  },
-];
 ---
 
 <section
@@ -55,31 +29,116 @@ const posts = [
     </div>
 
     <div class="notebook-list">
-      {
-        posts.map((post) => (
-          <article class="notebook-item">
-            <div class="notebook-item__tag">
-              {post.tag}
-            </div>
+      <article class="notebook-item">
+        <div class="notebook-item__tag">
+          Microsoft 365
+        </div>
 
-            <div class="notebook-item__content">
-              <h3>{post.title}</h3>
+        <div class="notebook-item__content">
+          <h3>
+            Practical guides for administrators and support engineers.
+          </h3>
 
-              <p>{post.description}</p>
+          <p>
+            Selected writing from the technical notebook at blog.sadhan.ch.
+          </p>
 
-              <a
-                class="notebook-item__link"
-                href={post.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {post.action}
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-        ))
-      }
+          <a
+            class="notebook-item__link"
+            href="https://blog.sadhan.ch/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read the blog
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <article
+        class="notebook-item"
+        id="latest-blog-post"
+        aria-live="polite"
+      >
+        <div
+          class="notebook-item__tag"
+          data-blog-category
+        >
+          Latest writing
+        </div>
+
+        <div class="notebook-item__content">
+          <h3 data-blog-title>
+            Deep dives, troubleshooting notes and things worth remembering.
+          </h3>
+
+          <p data-blog-description>
+            Technical investigations, documentation and lessons from working
+            with enterprise technology.
+          </p>
+
+          <a
+            class="notebook-item__link"
+            href="https://blog.sadhan.ch/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-blog-link
+          >
+            Visit the blog
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
     </div>
   </div>
+
+  <script>
+    const category = document.querySelector("[data-blog-category]");
+    const title = document.querySelector("[data-blog-title]");
+    const description = document.querySelector("[data-blog-description]");
+    const link = document.querySelector("[data-blog-link]");
+
+    async function loadLatestBlogPost() {
+      try {
+        const response = await fetch("/api/blog-feed", {
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`Feed request failed: ${response.status}`);
+        }
+
+        const post = await response.json();
+
+        if (!post?.title || !post?.link) {
+          throw new Error("Feed response is missing required fields.");
+        }
+
+        if (category) {
+          category.textContent = post.category || "Latest writing";
+        }
+
+        if (title) {
+          title.textContent = post.title;
+        }
+
+        if (description) {
+          description.textContent =
+            post.description ||
+            "Technical investigations, documentation and lessons from working with enterprise technology.";
+        }
+
+        if (link) {
+          link.href = post.link;
+          link.innerHTML = 'Read the article <span aria-hidden="true">→</span>';
+        }
+      } catch (error) {
+        console.warn("Unable to load the latest blog post.", error);
+      }
+    }
+
+    loadLatestBlogPost();
+  </script>
 </section>
